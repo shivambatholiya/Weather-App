@@ -16,6 +16,7 @@ body {
 .container {
      width: 90%;
      max-width: 470px;
+     min-width: 270px;
      background: linear-gradient(135deg, #00feba, #5b548a);
      color: #fff;
      border-radius: 20px;
@@ -35,16 +36,13 @@ body {
     outline: 0;
     background: #ebfffc;
     color: #000;
-    padding: 15px 25px;
-    height: 50px;
+    padding-left: 1.5rem;
+    width: 7rem;
+    height: 3.3rem;
     border-radius: 30px;
     flex: 1;
-    margin-right: 16px;
-    font-size: 20px;
-}
-
-.search-box input::placeholder {
-    color: #605f5f;
+    margin-right: 1rem;
+    font-size: 1.3rem;
 }
 
 .search-box button {
@@ -52,10 +50,14 @@ body {
     outline: 0;
     background: #ebfffc;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 3.3rem;
+    height: 3.3rem;
+    font-size: 1rem;
     cursor: pointer;
+}
+
+.search-box input::placeholder {
+    color: #605f5f;
 }
 
 .search-box button:hover {
@@ -162,5 +164,10 @@ body {
     width: 300px;
 }
 
-
+@media screen and (max-width: 370px)  {
+    .search-box input {
+        font-size: 15px;
+        padding-left: 10px;
+    }
+}
 
