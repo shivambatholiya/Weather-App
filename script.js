@@ -17,6 +17,7 @@ async function checkWeather(city) {
 
     const weather_data = await fetch(`${url}`).then(response => response.json());
 
+    // if user enters a wrong location
     if(weather_data.cod === `404`){
         location_not_found.style.display = "flex";
         weather_body.style.display = "none";
@@ -35,23 +36,30 @@ async function checkWeather(city) {
 
     switch(weather_data.weather[0].main){
         case 'Clouds':
-            weather_img.src = "images/cloud.png";
+            weather_img.src = "images/cloud.svg";
             break;
         case 'Clear':
-            weather_img.src = "images/clear.png";
+            weather_img.src = "images/clear.svg";
             break;
         case 'Rain':
-            weather_img.src = "images/rain.png";
+            weather_img.src = "images/rain.svg";
             break;
         case 'Mist':
-            weather_img.src = "images/mist.png";
+            weather_img.src = "images/mist.svg";
             break;
         case 'Snow':
-            weather_img.src = "images/snow.png";
+            weather_img.src = "images/snow.svg";
+            break;
+        case 'Smoke':
+            weather_img.src = "images/smoke.svg";
+            break;
+        case 'Haze':
+            weather_img.src = "images/haze.svg";
+            break;
+        case 'Drizzle':
+            weather_img.src = "images/drizzle.svg";
             break;
     }
-
-    console.log(weather_data);
 }
 
 checkWeather("delhi");
@@ -60,9 +68,10 @@ searchBtn.addEventListener('click', ()=>{
     checkWeather(inputBox.value);
 });
 
+// when user press the Enter key after typing the cityname in input field
 inputBox.addEventListener("keyup", function(event) {
     if (event.key == "Enter" && inputBox.value != "") {
         searchBtn.click();
-        // checkWeather(inputBox.value);
+        //checkWeather(inputBox.value);
     }
   });
